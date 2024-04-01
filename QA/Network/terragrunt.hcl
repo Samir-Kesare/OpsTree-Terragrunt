@@ -322,12 +322,17 @@ alb_sg_outbound_rules  = [
     }
   ]
 
+/*--------------- ALB Security Group ---------------*/
+alb_sg_name = "QA-alb-sg"
+alb_sg_description = "Security group for QA-ALB"
+
+
 alb_sg_tags = {
     Environment = "QA"
     Owner       = "Vidhi"
   }
 
-// ALB
+/*--------------- ALB ---------------*/
 
  alb_deletion_protection = false
 
@@ -335,13 +340,13 @@ alb_sg_tags = {
     Enviroment = "QA"
     Owner = "Vidhi"
   }
-
-  // ROUTE 53 
+  /*--------------- Route 53 ---------------*/
 
 route53_zone_tags = {
     Enviroment = "QA"
     Owner = "Vidhi"
   }
+
 
 
 }
