@@ -12,7 +12,7 @@ inputs = {
     vpc_tags = {
         Name          = "dev-vpc"
         Enviroment    = "Dev"
-        Owner         = "Harshit"
+        Owner         = "Vidhi"
     }
     public_subnets_az = ["us-east-1a", "us-east-1b"]
     private_subnets_az = "us-east-1a"
@@ -20,54 +20,54 @@ inputs = {
     {
       Name = "public-subnet-01"
       Environment = "Dev"
-      Owner =  "Harshit"
+      Owner =  "Vidhi"
     },
     {
       Name = "public-subnet-02"
       Environment = "Dev"
-      Owner = "Harshit"
+      Owner = "Vidhi"
     }
   ]
     private_subnets_tags = [
     {
       Name = "frontend-subnet"
       Environment = "Dev"
-      Owner =  "Harshit"
+      Owner =  "Vidhi"
     },
     {
       Name = "backend-subnet"
       Environment = "Dev"
-      Owner = "Harshit"
+      Owner = "Vidhi"
     },
     {
       Name = "database-subnet"
       Environment = "Dev"
-      Owner = "Harshit"
+      Owner = "Vidhi"
 
     }
   ]
     igw_tags = {
     Name = "dev-igw-01"
     Environment = "Dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
   }
 
     nat_tags = {
     Name = "dev-nat-01"
     Environment = "Dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
     }
 
     public_route_table_tags = {
     Name = "dev-public-RTB-01"
     Environment = "Dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
     }
 
     private_route_table_tags = {
     Name = "qa-private-RTB-01"
     Environment = "Dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
     }
 
     frontend_nacl_ingress = [{
@@ -126,7 +126,7 @@ frontend_nacl_egress = [{
     frontend_nacl_tags  = {
     Name = "dev-frontend-nacl-01"
     Enviroment = "dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
   }
 
 //BACKEND NACL
@@ -226,7 +226,7 @@ backend_nacl_egress = [{
 backend_nacl_tags  = {
     Name = "dev-backend-nacl-01"
     Enviroment = "dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
   }
 
 //DATABASE NACL
@@ -296,7 +296,7 @@ db_nacl_egress = [{
 db_nacl_tags  = {
     Name = "dev-db-nacl-01"
     Enviroment = "dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
   }
 
 // ALB SECURITY GROUP
@@ -321,7 +321,7 @@ alb_sg_outbound_rules  = [
 
 alb_sg_tags = {
     Environment = "dev"
-    Owner       = "Harshit"
+    Owner       = "Vidhi"
   }
 
 // ALB
@@ -330,14 +330,14 @@ alb_sg_tags = {
 
  alb_tags = {
     Enviroment = "Dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
   }
 
   // ROUTE 53 
 
 route53_zone_tags = {
     Enviroment = "dev"
-    Owner = "Harshit"
+    Owner = "Vidhi"
   }
 
 
