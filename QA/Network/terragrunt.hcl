@@ -9,9 +9,12 @@ terraform {
 
 inputs = {
     region              = "us-east-1"
+    vpc_cidr = "10.0.1.0/24"
+    public_subnets_cidr = ["10.0.1.0/27", "10.0.1.32/27"]
+    private_subnets_cidr = ["10.0.1.64/27", "10.0.1.96/27", "10.0.1.128/27"]
     vpc_tags = {
-        Name          = "dev-vpc"
-        Enviroment    = "Dev"
+        Name          = "QA-vpc"
+        Enviroment    = "QA"
         Owner         = "Vidhi"
     }
     public_subnets_az = ["us-east-1a", "us-east-1b"]
@@ -19,54 +22,54 @@ inputs = {
     public_subnets_tags = [
     {
       Name = "public-subnet-01"
-      Environment = "Dev"
+      Environment = "QA"
       Owner =  "Vidhi"
     },
     {
       Name = "public-subnet-02"
-      Environment = "Dev"
+      Environment = "QA"
       Owner = "Vidhi"
     }
   ]
     private_subnets_tags = [
     {
       Name = "frontend-subnet"
-      Environment = "Dev"
+      Environment = "QA"
       Owner =  "Vidhi"
     },
     {
       Name = "backend-subnet"
-      Environment = "Dev"
+      Environment = "QA"
       Owner = "Vidhi"
     },
     {
       Name = "database-subnet"
-      Environment = "Dev"
+      Environment = "QA"
       Owner = "Vidhi"
 
     }
   ]
     igw_tags = {
-    Name = "dev-igw-01"
-    Environment = "Dev"
+    Name = "QA-igw-01"
+    Environment = "QA"
     Owner = "Vidhi"
   }
 
     nat_tags = {
-    Name = "dev-nat-01"
-    Environment = "Dev"
+    Name = "QA-nat-01"
+    Environment = "QA"
     Owner = "Vidhi"
     }
 
     public_route_table_tags = {
-    Name = "dev-public-RTB-01"
-    Environment = "Dev"
+    Name = "QA-public-RTB-01"
+    Environment = "QA"
     Owner = "Vidhi"
     }
 
     private_route_table_tags = {
     Name = "qa-private-RTB-01"
-    Environment = "Dev"
+    Environment = "QA"
     Owner = "Vidhi"
     }
 
@@ -124,8 +127,8 @@ frontend_nacl_egress = [{
     }]
 
     frontend_nacl_tags  = {
-    Name = "dev-frontend-nacl-01"
-    Enviroment = "dev"
+    Name = "QA-frontend-nacl-01"
+    Enviroment = "QA"
     Owner = "Vidhi"
   }
 
@@ -224,8 +227,8 @@ backend_nacl_egress = [{
     }]
 
 backend_nacl_tags  = {
-    Name = "dev-backend-nacl-01"
-    Enviroment = "dev"
+    Name = "QA-backend-nacl-01"
+    Enviroment = "QA"
     Owner = "Vidhi"
   }
 
@@ -294,8 +297,8 @@ db_nacl_egress = [{
     }]
 
 db_nacl_tags  = {
-    Name = "dev-db-nacl-01"
-    Enviroment = "dev"
+    Name = "QA-db-nacl-01"
+    Enviroment = "QA"
     Owner = "Vidhi"
   }
 
@@ -320,7 +323,7 @@ alb_sg_outbound_rules  = [
   ]
 
 alb_sg_tags = {
-    Environment = "dev"
+    Environment = "QA"
     Owner       = "Vidhi"
   }
 
@@ -329,14 +332,14 @@ alb_sg_tags = {
  alb_deletion_protection = false
 
  alb_tags = {
-    Enviroment = "Dev"
+    Enviroment = "QA"
     Owner = "Vidhi"
   }
 
   // ROUTE 53 
 
 route53_zone_tags = {
-    Enviroment = "dev"
+    Enviroment = "QA"
     Owner = "Vidhi"
   }
 
