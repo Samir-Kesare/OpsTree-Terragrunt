@@ -14,7 +14,7 @@ server_type         = "t2.medium"
 subnet_id           = "subnet-0dc05fffbacb821e8"
 server_name         = "Dev_Redis-Server"
 inbound_ports = [ {
-  port = 22 , protocol = "tcp" , security_group_ids = "sg-0ced15d988acdb94b" 
+  port = 22 , protocol = "tcp" , security_group_ids = "sg-083fa5f9dc15a014f"
 },
 {
  port = 6379 , protocol = "tcp" , security_group_ids = "sg-0a4ecb0570e13e365"
