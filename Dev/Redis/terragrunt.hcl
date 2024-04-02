@@ -11,7 +11,7 @@ inputs = {
     vpc_id          = "vpc-00e048db5cbda61fa"
 key_name            = "redisKey.pem"
 server_type         = "t2.medium"
-subnet_id           = "subnet-0dc05fffbacb821e8"
+subnet_id           = "subnet-00f1c9e56d7e36121"
 server_name         = "Dev_Redis-Server"
 inbound_ports = [ {
   port = 22 , protocol = "tcp" , security_group_ids = "sg-0099d9d92813605be"
