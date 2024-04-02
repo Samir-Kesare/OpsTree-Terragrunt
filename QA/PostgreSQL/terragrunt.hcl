@@ -8,6 +8,8 @@ terraform {
 }
 
 inputs = {
+    instance_count      = 1
+    associate_public_ip = false
     vpc_id              = "vpc-0a744f2efc4febb2a"
     key_name            = "postgreSQLqaTG.pem"
     server_type         = "t2.medium"
