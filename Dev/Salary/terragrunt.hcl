@@ -12,8 +12,8 @@ inputs = {
         SG_vpc_id = "vpc-007fd0dab685edb84"
         inbound_ports = [
              { port = 22, protocol = "tcp",cidr_blocks = "20.0.0.0/28" }, 
-             { port = 22, protocol = "tcp", security_group_ids = "sg-0f952200d5622b313" },   
-             { port = 8080, protocol = "tcp", security_group_ids = "sg-0f952200d5622b313" },  
+             { port = 22, protocol = "tcp", security_group_ids = "sg-0daf8fbea6901da24" },   
+             { port = 8080, protocol = "tcp", security_group_ids = "sg-0daf8fbea6901da24" },  
         ]
         outbound_ports = [
             { port = 0, protocol = "-1", cidr_blocks = "0.0.0.0/0", },
@@ -26,7 +26,7 @@ inputs = {
         template_name = "dev-Salary-launch-template"
         AMI_ID = "ami-003598db5bd1895ae"
         instance_type = "t2.micro"
-        instance_keypair = "SalaryQAKey"
+        instance_keypair = "SalaryDevKey"
         subnet_ID = "subnet-09fcc50eed3fadec9"
         target_group_name = "dev-Salary-target-group"
         TG_vpc_id = "vpc-007fd0dab685edb84"
