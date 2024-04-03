@@ -8,7 +8,7 @@ terraform {
 }
 
 inputs = {
-    vpc_id          = "vpc-0a744f2efc4febb2a"
+    vpc_id          = "vpc-021ba65dc7d757ba2"
 key_name            = "redisKey.pem"
 server_type         = "t2.medium"
 subnet_id           = "subnet-0dc05fffbacb821e8"
