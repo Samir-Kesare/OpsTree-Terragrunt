@@ -31,6 +31,7 @@ inputs = {
         target_group_name = "dev-employee-target-group"
         TG_vpc_id = "vpc-007fd0dab685edb84"
         listener_arn = "arn:aws:elasticloadbalancing:us-east-1:630493305452:listener/app/dev-alb/fcb19c22029dc5f1/0abbb0321524949c"
+        priority = "110"
         autoscaling_group_name = "dev-employee-asg"
         subnet_ids = ["subnet-0386f88e11186dcdd"]
         tag_key = "Name"
