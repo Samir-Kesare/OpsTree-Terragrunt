@@ -22,14 +22,15 @@ inputs = {
         Owner         = "Harshit"
     }
     server_name         = "Postgres-Dev"
-    inbound_ports = [ {
+    inbound_ports = [{
+    port = 22 , protocol = "tcp" , cidr_blocks = "20.0.0.0/28"
+    },  
+    # {
     # port = 22 , protocol = "tcp" , security_group_ids = "sg-0ced15d988acdb94b" will add id when available
     # },
     # {
     # port = 5432 , protocol = "tcp" , security_group_ids = "sg-0a4ecb0570e13e365" will add id when available
     # },
-    {
-    port = 22 , protocol = "tcp" , cidr_blocks = "20.0.0.0/28"
-    } ]
+    ]
 }
 
