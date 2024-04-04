@@ -8,7 +8,7 @@ inputs = {
     vpc_id          = "vpc-021ba65dc7d757ba2"
 key_name            = "scyllaKeyQA.pem"
 server_type         = "t2.medium"
-subnet_id           = "subnet-02b2f6ec035946a94"
+subnet_id           = "subnet-0a23407e8cd107029"
 server_name         = "QA_Scylla-Server"
 inbound_ports = [ {
  port = 22 , protocol = "tcp" , cidr_blocks = "20.0.0.32/28"
