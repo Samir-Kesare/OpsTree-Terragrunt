@@ -8,7 +8,7 @@ terraform {
 }
 
 inputs = {
-    vpc_id          = "vpc-0a744f2efc4febb2a"
+vpc_id          = "vpc-0a744f2efc4febb2a"
 key_name            = "redisKey.pem"
 server_type         = "t2.medium"
 subnet_id           = "subnet-0dc05fffbacb821e8"
@@ -18,6 +18,7 @@ inbound_ports = [ {
 },
 {
  port = 6379 , protocol = "tcp" , security_group_ids = "sg-0a4ecb0570e13e365"
+
 },
 {
  port = 22 , protocol = "tcp" , cidr_blocks = "20.0.0.0/28"
