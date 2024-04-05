@@ -8,67 +8,71 @@ terraform {
 
 inputs = {
     region              = "us-east-1"
-    vpc_cidr = "10.1.0.0/25"
-    public_subnets_cidr = ["10.1.0.0/28", "10.1.0.16/28"]
-    private_subnets_cidr = ["10.1.0.32/28", "10.1.0.64/27", "10.1.0.96/28"]
+    vpc_cidr = "10.0.0.0/25"
+    public_subnets_cidr = ["10.0.0.0/28", "10.0.0.16/28"]
+    public_subnets_az = ["us-east-1a", "us-east-1b"]
+    private_subnets_cidr = ["10.0.0.32/28", "10.0.0.64/27", "10.0.0.96/28"]
+    private_subnets_az = "us-east-1a"
     vpc_tags = {
-        Name          = "QA-vpc"
-        Enviroment    = "QA"
+        Name          = "dev-vpc"
+        Enviroment    = "Dev"
         Owner         = "Vidhi"
     }
     public_subnets_az = ["us-east-1a", "us-east-1b"]
     private_subnets_az = "us-east-1a"
+    vpc_enable_dns_hostnames = false
+    vpc_enable_dns_support = true
     public_subnets_tags = [
     {
       Name = "public-subnet-01"
-      Environment = "QA"
+      Environment = "Dev"
       Owner =  "Vidhi"
     },
     {
       Name = "public-subnet-02"
-      Environment = "QA"
+      Environment = "Dev"
       Owner = "Vidhi"
     }
   ]
     private_subnets_tags = [
     {
       Name = "frontend-subnet"
-      Environment = "QA"
+      Environment = "Dev"
       Owner =  "Vidhi"
     },
     {
       Name = "backend-subnet"
-      Environment = "QA"
+      Environment = "Dev"
       Owner = "Vidhi"
     },
     {
       Name = "database-subnet"
-      Environment = "QA"
+      Environment = "Dev"
       Owner = "Vidhi"
 
     }
   ]
     igw_tags = {
-    Name = "QA-igw-01"
-    Environment = "QA"
+    Name = "dev-igw-01"
+    Environment = "Dev"
     Owner = "Vidhi"
   }
 
     nat_tags = {
-    Name = "QA-nat-01"
-    Environment = "QA"
+    Name = "dev-nat-01"
+    Environment = "Dev"
     Owner = "Vidhi"
     }
 
     public_route_table_tags = {
-    Name = "QA-public-RTB-01"
-    Environment = "QA"
+    Name = "dev-public-RTB-01"
+    Environment = "Dev"
     Owner = "Vidhi"
     }
 
     private_route_table_tags = {
-    Name = "qa-private-RTB-01"
-    Environment = "QA"
+    Name = "dev-private-RTB-01"
+    Environment = "Dev"
     Owner = "Vidhi"
     }
 
@@ -82,21 +86,21 @@ inputs = {
     }, {
     rule_no = 110
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 3000	
     to_port = 3000
     action = "allow"
     }, {
     rule_no = 120
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"
+    cidr_block = "10.0.0.0/28"
     from_port = 22	
     to_port = 22
     action = "allow"
     }, {
     rule_no = 130
     protocol = "tcp"
-    cidr_block = "10.1.0.16/28"	
+    cidr_block = "10.0.0.16/28"	
     from_port = 3000
     to_port = 3000
     action = "allow"
@@ -112,22 +116,22 @@ frontend_nacl_egress = [{
     }, {
     rule_no = 110
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 1024
     to_port = 65535
     action = "allow"
     }, {
     rule_no = 120
     protocol = "tcp"
-    cidr_block = "10.1.0.16/28"	
+    cidr_block = "10.0.0.16/28"	
     from_port = 1024
     to_port =  65535
     action = "allow"
     }]
 
     frontend_nacl_tags  = {
-    Name = "QA-frontend-nacl-01"
-    Enviroment = "QA"
+    Name = "dev-frontend-nacl-01"
+    Enviroment = "dev"
     Owner = "Vidhi"
   }
 
@@ -145,42 +149,42 @@ backend_nacl_ingress = [{
     }, {
     rule_no = 110
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 8080
     to_port = 8080
     action = "allow"
     }, {
     rule_no = 120
     protocol = "tcp"
-    cidr_block = "10.1.0.96/28"
+    cidr_block = "10.0.0.96/28"
     from_port = 1024
     to_port = 65535
     action = "allow"
     }, {
     rule_no = 130
     protocol = "tcp"
-    cidr_block = "10.1.0.16/28"	
+    cidr_block = "10.0.0.16/28"	
     from_port = 1024
     to_port = 65535
     action = "allow"
     }, {
     rule_no = 140
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 22
     to_port = 22
     action = "allow"
     }, {
     rule_no = 150
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 1024
     to_port = 65535
     action = "allow"
     }, {
     rule_no = 160
     protocol = "tcp"
-    cidr_block = "10.1.0.16/28"	
+    cidr_block = "10.0.0.64/27"	
     from_port = 8080
     to_port = 8080
     action = "allow"
@@ -198,7 +202,7 @@ backend_nacl_egress = [{
     }, {
     rule_no = 110
     protocol = "tcp"
-    cidr_block = "10.1.0.96/28"	
+    cidr_block = "10.0.0.96/28"	
     from_port = 1024
     to_port = 65535
     action = "allow"
@@ -212,22 +216,22 @@ backend_nacl_egress = [{
     }, {
     rule_no = 130
     protocol = "tcp"
-    cidr_block = "10.1.0.16/28"	
+    cidr_block = "10.0.0.16/28"	
     from_port = 1024
     to_port =  65535
     action = "allow"
     }, {
     rule_no = 140
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 1024
     to_port =  65535
     action = "allow"
     }]
 
 backend_nacl_tags  = {
-    Name = "QA-backend-nacl-01"
-    Enviroment = "QA"
+    Name = "dev-backend-nacl-01"
+    Enviroment = "dev"
     Owner = "Vidhi"
   }
 
@@ -243,28 +247,28 @@ db_nacl_ingress = [{
     }, {
     rule_no = 110
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 22
     to_port = 22
     action = "allow"
     }, {
     rule_no = 120
     protocol = "tcp"
-    cidr_block = "10.1.0.64/27"
+    cidr_block = "10.0.0.64/27"
     from_port = 6379
     to_port = 6379
     action = "allow"
     }, {
     rule_no = 130
     protocol = "tcp"
-    cidr_block = "10.1.0.64/27"	
+    cidr_block = "10.0.0.64/27"	
     from_port = 9042
     to_port = 9042
     action = "allow"
     }, {
     rule_no = 140
     protocol = "tcp"
-    cidr_block = "10.1.0.64/27"	
+    cidr_block = "10.0.0.64/27"	
     from_port = 5432
     to_port = 5432
     action = "allow"
@@ -282,22 +286,22 @@ db_nacl_egress = [{
     }, {
     rule_no = 110
     protocol = "tcp"
-    cidr_block = "10.1.0.64/27"	
+    cidr_block = "10.0.0.64/27"	
     from_port = 1024
     to_port = 65535
     action = "allow"
     }, {
     rule_no = 120
     protocol = "tcp"
-    cidr_block = "10.1.0.0/28"	
+    cidr_block = "10.0.0.0/28"	
     from_port = 1024
     to_port =  65535
     action = "allow"
     }]
 
 db_nacl_tags  = {
-    Name = "QA-db-nacl-01"
-    Enviroment = "QA"
+    Name = "dev-db-nacl-01"
+    Enviroment = "dev"
     Owner = "Vidhi"
   }
 
@@ -327,7 +331,7 @@ alb_sg_description = "Security group for QA-ALB"
 
 
 alb_sg_tags = {
-    Environment = "QA"
+    Environment = "dev"
     Owner       = "Vidhi"
   }
 
@@ -336,17 +340,18 @@ alb_sg_tags = {
  alb_deletion_protection = false
 
  alb_tags = {
-    Enviroment = "QA"
+    Enviroment = "Dev"
     Owner = "Vidhi"
   }
   /*--------------- Route 53 ---------------*/
 
 route53_zone_tags = {
-    Enviroment = "QA"
+    Enviroment = "dev"
     Owner = "Vidhi"
   }
 
 alb_listener_port = 80
 alb_listener_protocol = "HTTP"
-alb_name = "qa-alb"
+
+
 }
