@@ -1,10 +1,9 @@
-include "root" {
+include {
   path = find_in_parent_folders("common.hcl")
 }
 
 terraform {
-  source = "git@github.com:CodeOps-Hub/Terraform-modules.git//Modules/Network_Skeleton_Module?ref=main"  
-
+  source = "git@github.com:CodeOps-Hub/Terraform-modules.git//Modules/Network_Skeleton_Module?ref=main"
 }
 
 inputs = {
@@ -326,12 +325,17 @@ alb_sg_outbound_rules  = [
     }
   ]
 
+/*--------------- ALB Security Group ---------------*/
+alb_sg_name = "QA-alb-sg"
+alb_sg_description = "Security group for QA-ALB"
+
+
 alb_sg_tags = {
     Environment = "dev"
     Owner       = "Vidhi"
   }
 
-// ALB
+/*--------------- ALB ---------------*/
 
  alb_deletion_protection = false
 
@@ -339,8 +343,7 @@ alb_sg_tags = {
     Enviroment = "Dev"
     Owner = "Vidhi"
   }
-
-  // ROUTE 53 
+  /*--------------- Route 53 ---------------*/
 
 route53_zone_tags = {
     Enviroment = "dev"
@@ -349,5 +352,6 @@ route53_zone_tags = {
 
 alb_listener_port = 80
 alb_listener_protocol = "HTTP"
+
 
 }
