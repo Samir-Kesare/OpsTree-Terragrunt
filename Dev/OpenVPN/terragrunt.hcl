@@ -8,10 +8,10 @@ terraform {
 }
 
 inputs = {
-    vpc_id              = "vpc-0611b987fccfe67ab"
+    vpc_id              = "vpc-007fd0dab685edb84"
     key_name            = "OpenVPN.pem"
     server_type         = "t2.micro"
-    subnet_id           = "subnet-0e862460ac08d381d"
+    subnet_id           = "subnet-0bfc1d2a2cc04f2aa"
     sec_grp_name = "OpenVPN-SG-TG"
     sec_grp_tags = {
         Name          = "OpenVPN-SG-TG"
