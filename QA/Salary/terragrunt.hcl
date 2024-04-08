@@ -7,33 +7,33 @@ terraform {
 
 }
 inputs = {
-        security_name = "qa-Salary-sg"
+        security_name = "Dev-Frontend-sg"
         Security_description = "Security group for SalaryAPI ASG in qa environment"
-        SG_vpc_id = "vpc-021ba65dc7d757ba2"
+        SG_vpc_id = "vpc-0383f4dc3af051efa"
         inbound_ports = [
              { port = 22, protocol = "tcp",cidr_blocks = "20.0.0.0/28" }, 
-             { port = 22, protocol = "tcp", security_group_ids = "sg-069e5c14b45bd4969" },   
-             { port = 8080, protocol = "tcp", security_group_ids = "sg-069e5c14b45bd4969" },  
+             { port = 22, protocol = "tcp", security_group_ids = "sg-0f470a22a92136557" },   
+             { port = 3000, protocol = "tcp", security_group_ids = "sg-0b426399b2b19b0ae" },  
         ]
         outbound_ports = [
             { port = 0, protocol = "-1", cidr_blocks = "0.0.0.0/0", },
         ]
         Sg_tags = {
-            Name = "qa-Salary-sg"
-             Enviroment    = "QA"
-            Owner         = "Shikha"                       
+            Name = "Dev-Frontend-sg"
+             Enviroment    = "Dev_Frontend"
+            Owner         = "Khushi"                       
         }
-        template_name = "qa-Salary-launch-template"
-        AMI_ID = "ami-003598db5bd1895ae"
+        template_name = "Dev-Frontend-template"
+        AMI_ID = "ami-0c335502f397b30c6"
         instance_type = "t2.micro"
-        instance_keypair = "SalaryKey"
-        subnet_ID = "subnet-07f0a6d71640aa0cd"
-        target_group_name = "qa-Salary-target-group"
-        TG_vpc_id = "vpc-021ba65dc7d757ba2"
-        listener_arn = "arn:aws:elasticloadbalancing:us-east-1:630493305452:listener/app/qa-alb/714928933b0b434e/85173b5bfe61d274"
-        autoscaling_group_name = "qa-Salary-asg"
-        subnet_ids = ["subnet-07f0a6d71640aa0cd"]
+        instance_keypair = "Dev_Frontend_Key"
+        subnet_ID = "subnet-04c0c823118f48202"
+        target_group_name = "Dev-Frontend-TG"
+        TG_vpc_id = "vpc-0383f4dc3af051efa"
+        listener_arn = "arn:aws:elasticloadbalancing:ap-northeast-1:133673781875:listener/app/Dev-ALB/75bc9b1a35dbe964/761653fb399a30be"
+        autoscaling_group_name = "Dev-Frontend_ASG"
+        subnet_ids = ["subnet-04c0c823118f48202"]
         tag_key = "Name"
-        tag_value = "qa-Salary-asg"
+        tag_value = "Dev-Frontend_ASG"
 
 }
