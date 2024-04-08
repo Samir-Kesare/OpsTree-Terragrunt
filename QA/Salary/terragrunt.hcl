@@ -7,33 +7,33 @@ terraform {
 
 }
 inputs = {
-        security_name = "Dev-Frontend-sg"
-        Security_description = "Security group for SalaryAPI ASG in qa environment"
-        SG_vpc_id = "vpc-0383f4dc3af051efa"
+        security_name = "dev-Salary-sg"
+        Security_description = "Security group for SalaryAPI ASG in dev environment"
+        SG_vpc_id = "vpc-007fd0dab685edb84"
         inbound_ports = [
              { port = 22, protocol = "tcp",cidr_blocks = "20.0.0.0/28" }, 
-             { port = 22, protocol = "tcp", security_group_ids = "sg-0f470a22a92136557" },   
-             { port = 3000, protocol = "tcp", security_group_ids = "sg-0b426399b2b19b0ae" },  
+             { port = 22, protocol = "tcp", security_group_ids = "sg-0daf8fbea6901da24" },   
+             { port = 8080, protocol = "tcp", security_group_ids = "sg-0daf8fbea6901da24" },  
         ]
         outbound_ports = [
             { port = 0, protocol = "-1", cidr_blocks = "0.0.0.0/0", },
         ]
         Sg_tags = {
-            Name = "Dev-Frontend-sg"
-             Enviroment    = "Dev_Frontend"
-            Owner         = "Khushi"                       
+            Name = "dev-Salary-sg"
+             Enviroment    = "Dev"
+            Owner         = "Shikha"                       
         }
-        template_name = "Dev-Frontend-template"
-        AMI_ID = "ami-0c335502f397b30c6"
+        template_name = "dev-Salary-launch-template"
+        AMI_ID = "ami-003598db5bd1895ae"
         instance_type = "t2.micro"
-        instance_keypair = "Dev_Frontend_Key"
-        subnet_ID = "subnet-04c0c823118f48202"
-        target_group_name = "Dev-Frontend-TG"
-        TG_vpc_id = "vpc-0383f4dc3af051efa"
-        listener_arn = "arn:aws:elasticloadbalancing:ap-northeast-1:133673781875:listener/app/Dev-ALB/75bc9b1a35dbe964/761653fb399a30be"
-        autoscaling_group_name = "Dev-Frontend_ASG"
-        subnet_ids = ["subnet-04c0c823118f48202"]
+        instance_keypair = "SalaryDevKey"
+        subnet_ID = "subnet-09fcc50eed3fadec9"
+        target_group_name = "dev-Salary-target-group"
+        TG_vpc_id = "vpc-007fd0dab685edb84"
+        listener_arn = "arn:aws:elasticloadbalancing:us-east-1:630493305452:listener/app/dev-alb/fcb19c22029dc5f1/0abbb0321524949c"
+        autoscaling_group_name = "dev-Salary-asg"
+        subnet_ids = ["subnet-09fcc50eed3fadec9"]
         tag_key = "Name"
-        tag_value = "Dev-Frontend_ASG"
+        tag_value = "dev-Salary-asg"
 
 }
