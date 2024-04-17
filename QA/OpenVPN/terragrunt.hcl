@@ -8,7 +8,7 @@ terraform {
 }
 
 inputs = {
-    vpc_id              = "vpc-007fd0dab685edb84"
+    vpc_id              = "vpc-0e67c673521a9d9e5"
     key_name            = "OpenVPN.pem"
     server_type         = "t2.micro"
     subnet_id           = "subnet-0bfc1d2a2cc04f2aa"
